@@ -16,6 +16,7 @@ namespace ConsoleApp2
         List<string> terminales = new List<string>();
         List<string> variables = new List<string>();
         List<string> reglas = new List<string>();
+
         public string initializeGrammar(string Texto)
         {
             _scanner = new Scanner(Texto);
@@ -25,10 +26,14 @@ namespace ConsoleApp2
 
             if (_token.Tag == "Variable")
             {
-                VariableActual = _token.Value + "->";
+                VariableActual = _token.Value + " -> ";
                 noTerminalInicial = _token.Value;
                 variables.Add(_token.Value);
                 Answer = i1();
+            }
+            else
+            {
+                Answer = "Error en la gramática";
             }
 
             return Answer;
@@ -92,7 +97,7 @@ namespace ConsoleApp2
             }
             else if (_token.Tag == "Variable")
             {
-                VariableActual = _token.Value + "->";
+                VariableActual = _token.Value + " -> ";
                 return i1();
             }
             else

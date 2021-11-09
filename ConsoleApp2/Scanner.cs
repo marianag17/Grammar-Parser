@@ -41,6 +41,7 @@ namespace ConsoleApp2
                 }
 
                 string aux = Convert.ToString(_regexp[_index]);
+
                 if (aux == "'")
                 {
                     if (_index == _regexp.Length - 1)
@@ -71,7 +72,7 @@ namespace ConsoleApp2
                         }
                         _index++;
                         aux = Convert.ToString(_regexp[_index]);
-                    } while (!string.IsNullOrWhiteSpace(new string(_regexp[_index], 1)) && aux != ";" && aux != ":" && aux != "|");
+                    } while (!string.IsNullOrWhiteSpace(new string(_regexp[_index], 1)) && aux != ";" && aux != ":" && aux != "|" && word != ":" && word != ";" && word != "|");
                 }
 
                 if (word == "\r\n")
